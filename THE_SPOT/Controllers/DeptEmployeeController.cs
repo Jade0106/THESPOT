@@ -20,5 +20,6 @@ namespace THE_SPOT.Controllers
         {
             return View();
         }
+        
     }
 }
