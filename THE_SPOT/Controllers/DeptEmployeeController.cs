@@ -8,7 +8,15 @@ namespace THE_SPOT.Controllers
         {
             return View();
         }
-        public IActionResult Index1()
+        public IActionResult ViewProducts()
+        {
+            return View();
+        }
+        public IActionResult PRDepartments()
+        {
+            return View();
+        }
+        public IActionResult PRHistoryDepartments()
         {
             return View();
         }
