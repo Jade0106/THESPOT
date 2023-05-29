@@ -1,10 +1,10 @@
-﻿@*@using static THE_SPOT.Models.DeptEmployeePR
+﻿@using static THE_SPOT.Models.DeptEmployeePR
 @model THE_SPOT.Models.DeptEmployeePR
 @{
-    ViewData["Title"] = "Create Purchase Request";
+    ViewData["Title"] = "PurchaseRequest";
 }
 
-<h4 class="text-bold text-warning">TERM TWO</h4>
+<h4 class="text-bold text-warning">CREATE PURCHASE REQUEST</h4>
 
 <form method="post" asp-action="Create">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -13,38 +13,38 @@
     {
         @Html.AntiForgeryToken()
         <div class="form-outline mb-4">
-            <label class="form-label" for="form3Example">Tutor Name</label>
-            <input asp-for="tutorName" type="text" id="form3Example1cg" class="form-control form-control-lg" />
+            <label class="form-label" for="form3Example">Iteam Quantity</label>
+            <input asp-for="qty" type="text" id="form3Example1cg" class="form-control form-control-lg" />
             @Html.ValidationSummary(true, "", new{@class = "text-danger"})
-            @Html.ValidationMessageFor(model => model.tutorName, "", new {@class = "text-danger"})
+            @Html.ValidationMessageFor(model => model.qty, "", new {@class = "text-danger"})
         </div>
 
         <div class="form-outline mb-4">
-            <label class="form-label" for="form3Example">Student Name</label>
-            <input asp-for="studentName" type="text" id="form3Example1cg" class="form-control form-control-lg" />
+            <label class="form-label" for="form3Example">Item Description</label>
+            <input asp-for="description" type="text" id="form3Example1cg" class="form-control form-control-lg" />
             @Html.ValidationSummary(true, "", new{@class = "text-danger"})
-            @Html.ValidationMessageFor(model => model.studentName, "", new {@class = "text-danger"})
+            @Html.ValidationMessageFor(model => model.description, "", new {@class = "text-danger"})
         </div>
 
         <div class="form-outline mb-4">
-            <label class="form-label" for="form3Example1cg" style="width:1000px">Select Subject</label>
-            @Html.DropDownListFor(m=> m.studentSubject, new SelectList(Enum.GetValues(typeof(StudentSubject))),"Select one option", new {@class="form-control"})
+            <label class="form-label" for="form3Example1cg" style="width:1000px">Item Price</label>
+            <input asp-for="itemPrice" type="text" id="form3Example1cg" class="form-control form-control-lg" />
             @Html.ValidationSummary(true, "", new{@class = "text-danger"})
-            @Html.ValidationMessageFor(model => model.studentSubject, "", new {@class = "text-danger"})
+            @Html.ValidationMessageFor(model => model.itemPrice, "", new {@class = "text-danger"})
         </div>
 
         <div class="form-outline mb-4">
-            <label class="form-label" for="form3Example">Student Problem</label>
-            <input asp-for="studentProblem" type="text" id="form3Example1cg" class="form-control form-control-lg" />
+            <label class="form-label" for="form3Example">Total</label>
+            <input asp-for="total" type="text" id="form3Example1cg" class="form-control form-control-lg" />
             @Html.ValidationSummary(true, "", new{@class = "text-danger"})
-            @Html.ValidationMessageFor(model => model.studentProblem, "", new {@class = "text-danger"})
+            @Html.ValidationMessageFor(model => model.total, "", new {@class = "text-danger"})
         </div>
 
         <div class="form-outline mb-4">
-            <label class="form-label" for="form3Example1cg" style="width:1000px">Select Grade</label>
-            @Html.DropDownListFor(m=> m.grade, new SelectList(Enum.GetValues(typeof(StudentGrade))),"Select one option", new {@class="form-control"})
+            <label class="form-label" for="form3Example1cg" style="width:1000px">Request Status</label>
+            <input asp-for="status" type="text" id="form3Example1cg" class="form-control form-control-lg" />
             @Html.ValidationSummary(true, "", new{@class = "text-danger"})
-            @Html.ValidationMessageFor(model => model.grade, "", new {@class = "text-danger"})
+            @Html.ValidationMessageFor(model => model.status, "", new {@class = "text-danger"})
         </div>
         <br />
 
@@ -55,4 +55,3 @@
         </div>
     }
 </form>
-*@

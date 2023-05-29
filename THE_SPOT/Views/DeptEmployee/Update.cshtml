@@ -1,50 +1,49 @@
-﻿@*@using static THE_SPOT.Models.DeptEmployeePR
+﻿@using static THE_SPOT.Models.DeptEmployeePR
 @model THE_SPOT.Models.DeptEmployeePR
 @{
     ViewData["Title"] = "Update";
-    Layout = "~/Views/Shared/Layout_TutorAssignReport.cshtml";
 }
 
 <form method="post" asp-action="Update">
-    <input asp-for="TutorAssignId" hidden />
+    <input asp-for="ID" hidden />
     <div class="border p-3">
         <div class="form-group row">
-            <h4 class="text-black pl-3 text-warning">UPDATE TUTOR ASSIGNMENT</h4>
+            <h4 class="text-black pl-3 text-warning">UPDATE PURCHASE REQUEST</h4>
         </div>
         <div class="row">
             <div class="col-12">
                 <div class="form-group row">
                     <div class="col-2">
-                        <label asp-for="tutorName"></label>
+                        <label asp-for="qty"></label>
                     </div>
                     <div class="col-2">
-                        <label asp-for="studentName"></label>
+                        <label asp-for="description"></label>
                     </div>
                     <div class="col-2">
-                        <label asp-for="studentSubject"></label>
+                        <label asp-for="itemPrice"></label>
                     </div>
                     <div class="col-2">
-                        <label asp-for="studentProblem"></label>
+                        <label asp-for="total"></label>
                     </div>
                     <div class="col-2">
-                        <label asp-for="grade"></label>
+                        <label asp-for="status"></label>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-2">
-                        <input asp-for="tutorName" class="form-control" />
+                        <input asp-for="qty" class="form-control" />
                     </div>
                     <div class="col-2">
-                        <input asp-for="studentName" class="form-control" />
+                        <input asp-for="description" class="form-control" />
                     </div>
                     <div class="col-2">
-                        @Html.DropDownListFor(m=> m.studentSubject, new SelectList(Enum.GetValues(typeof(StudentSubject))),"Select one option", new {@class="form-control"})
+                        <input asp-for="itemPrice" class="form-control" />
                     </div>
                     <div class="col-2">
-                        <input asp-for="studentProblem" class="form-control" />
+                        <input asp-for="total" class="form-control" />
                     </div>
                     <div class="col-2">
-                        @Html.DropDownListFor(m=> m.grade, new SelectList(Enum.GetValues(typeof(StudentGrade))),"Select one option", new {@class="form-control"})
+                        <input asp-for="status" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group row">
@@ -63,4 +62,3 @@
     </div>
 </form>
 
-*@
