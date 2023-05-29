@@ -4,6 +4,14 @@
 }
 
 <h4 class="text-center text-bold">TEA DEPARTMENT PURCHASE REQUEST HISTORY</h4>
+<br />
+<div class="form-actions no-color">
+    <p>
+        Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+        <input type="submit" value="Search" class="btn btn-default" /> |
+        <a asp-action="Index">Back to Full List</a>
+    </p>
+</div>
 <div class="container p-3 text-md-center text-bold">
     <a class="nav-link" href="javascript:window.print()">
         <span class="tf-icons bx bx-printer me-2"></span>
