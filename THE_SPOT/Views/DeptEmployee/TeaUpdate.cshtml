@@ -1,14 +1,14 @@
-﻿@*@using static THE_SPOT.Models.DeptEmployeePR
-@model THE_SPOT.Models.DeptEmployeePR
+﻿@using static THE_SPOT.Models.TeaDeptPR
+@model THE_SPOT.Models.TeaDeptPR
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Update";
 }
 
-<form method="post" asp-action="DeletePost">
+<form method="post" asp-action="CoffeeUpdate">
     <input asp-for="ID" hidden />
     <div class="border p-3">
         <div class="form-group row">
-            <h4 class="text-black pl-3 text-warning">DELETE PURCHASE REQUEST ORDER</h4>
+            <h4 class="text-black pl-3 text-warning">UPDATE PURCHASE REQUEST</h4>
         </div>
         <div class="row">
             <div class="col-12">
@@ -34,37 +34,37 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-2">
-                        <input asp-for="qty" disabled class="form-control" />
+                        <input asp-for="qty" class="form-control" />
                     </div>
                     <div class="col-2">
-                        <input asp-for="date" disabled class="form-control" />
+                        <input asp-for="date" class="form-control" />
                     </div>
                     <div class="col-2">
-                        <input asp-for="description" disabled class="form-control" />
+                        <input asp-for="description" class="form-control" />
                     </div>
                     <div class="col-2">
-                        <input asp-for="itemPrice" disabled class="form-control" />
+                        <input asp-for="itemPrice" class="form-control" />
                     </div>
                     <div class="col-2">
-                        <input asp-for="total" disabled class="form-control" />
+                        <input asp-for="total" class="form-control" />
                     </div>
                     <div class="col-2">
-                        <input asp-for="status" disabled class="form-control" />
+                        <input asp-for="status" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-8 offset-2 row">
                         <div class="col">
-                            <input type="submit" class="btn btn-outline-danger w-75" value="DELETE" />
+                            <input type="submit" class="btn btn-outline-info w-75" value="UPDATE" />
                         </div>
                         <div class="col">
                             <a asp-action="Index" class="btn btn-outline-warning w-75">BACK</a>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
-
 </form>
-*@
+
