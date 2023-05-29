@@ -11,6 +11,8 @@ namespace THE_SPOT.Data
         {
         }
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
-        public DbSet<DeptEmployeePR> DeptEmployeePR { get; set; }
+        public DbSet<CoffeeDeptPR> CoffeeDeptPR { get; set; }
+        public DbSet<TeaDeptPR> TeaDeptPR { get; set; }
+        public DbSet<MugsDeptPR> MugsDeptPR { get; set; }
     }
 }

@@ -27,9 +27,21 @@ namespace THE_SPOT.Controllers
         {
             return View();
         }
+        public IActionResult CoffeeDeptPR()
+        {
+            return View();
+        }
+        public IActionResult TeaDeptPR()
+        {
+            return View();
+        }
+        public IActionResult MugsDeptPR()
+        {
+            return View();
+        }
         public IActionResult PRHistoryDepartments()
         {
-            IEnumerable<DeptEmployeePR> objList = _db.DeptEmployeePR;
+            IEnumerable<CoffeeDeptPR> objList = _db.CoffeeDeptPR;
             return View(objList);
         }
         public IActionResult Create()
@@ -38,11 +50,11 @@ namespace THE_SPOT.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(DeptEmployeePR obj)
+        public IActionResult Create(CoffeeDeptPR obj)
         {
             if (ModelState.IsValid)
             {
-                _db.DeptEmployeePR.Add(obj);
+                _db.CoffeeDeptPR.Add(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -56,7 +68,7 @@ namespace THE_SPOT.Controllers
                 return NotFound();
             }
 
-            var obj = _db.DeptEmployeePR.Find(id);
+            var obj = _db.CoffeeDeptPR.Find(id);
             if (obj == null)
             {
                 return NotFound();
@@ -68,9 +80,9 @@ namespace THE_SPOT.Controllers
         //POST-Update updating the current data we have 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Update(DeptEmployeePR obj)
+        public IActionResult Update(CoffeeDeptPR obj)
         {
-            _db.DeptEmployeePR.Update(obj);
+            _db.CoffeeDeptPR.Update(obj);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -84,7 +96,7 @@ namespace THE_SPOT.Controllers
             {
                 return NotFound();
             }
-            var obj = _db.DeptEmployeePR.Find(id);
+            var obj = _db.CoffeeDeptPR.Find(id);
             if (obj == null)
             {
                 return NotFound();
@@ -96,11 +108,11 @@ namespace THE_SPOT.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeletePost(int? id)
         {
-            var obj = _db.DeptEmployeePR.Find(deleteId);
+            var obj = _db.CoffeeDeptPR.Find(deleteId);
 
             try
             {
-                _db.DeptEmployeePR.Remove(obj);
+                _db.CoffeeDeptPR.Remove(obj);
                 _db.SaveChanges();
             }
             catch (DbUpdateException ex)

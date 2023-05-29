@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace THE_SPOT.Models
 {
-    public class DeptEmployeePR
+    public class TeaDeptPR
     {
         [Key]
         public int ID { get; set; }
@@ -28,6 +28,6 @@ namespace THE_SPOT.Models
 
         [DisplayName("Request Status")]
         public string status { get; set; }
-        
+
     }
 }

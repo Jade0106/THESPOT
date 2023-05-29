@@ -1,4 +1,4 @@
-﻿@using static THE_SPOT.Models.DeptEmployeePR
+﻿@*@using static THE_SPOT.Models.DeptEmployeePR
 @model THE_SPOT.Models.DeptEmployeePR
 @{
     ViewData["Title"] = "Index";
@@ -17,6 +17,9 @@
                         <label asp-for="qty"></label>
                     </div>
                     <div class="col-2">
+                        <label asp-for="date"></label>
+                    </div>
+                    <div class="col-2">
                         <label asp-for="description"></label>
                     </div>
                     <div class="col-2">
@@ -32,6 +35,9 @@
                 <div class="form-group row">
                     <div class="col-2">
                         <input asp-for="qty" disabled class="form-control" />
+                    </div>
+                    <div class="col-2">
+                        <input asp-for="date" disabled class="form-control" />
                     </div>
                     <div class="col-2">
                         <input asp-for="description" disabled class="form-control" />
@@ -61,3 +67,4 @@
     </div>
 
 </form>
+*@
