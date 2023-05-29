@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace THE_SPOT.Models
 {
-    public class DeptEmployee
+    public class DeptEmployeePR
     {
         [Key]
         public int ID { get; set; }
@@ -22,6 +22,9 @@ namespace THE_SPOT.Models
 
         [DisplayName("Total")]
         public float total { get; set; }
+
+        [DisplayName("Request Status")]
+        public string status { get; set; }
         
     }
 }
