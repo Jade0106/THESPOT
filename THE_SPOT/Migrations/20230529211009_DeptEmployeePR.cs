@@ -14,6 +14,7 @@ namespace THE_SPOT.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    date = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     qty = table.Column<int>(type: "int", nullable: false),
                     description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     itemPrice = table.Column<float>(type: "real", nullable: false),

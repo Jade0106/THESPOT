@@ -4,7 +4,10 @@
     ViewData["Title"] = "PurchaseRequest";
 }
 
-<h4 class="text-bold text-warning">CREATE PURCHASE REQUEST</h4>
+<div style="text-align:center">
+<img src="~/Images/transparentLogo.png" width="150"/>
+</div>
+<h4 class="text-bold text-dark" style="text-align:center">CREATE PURCHASE REQUEST</h4>
 
 <form method="post" asp-action="Create">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -46,11 +49,9 @@
             @Html.ValidationSummary(true, "", new{@class = "text-danger"})
             @Html.ValidationMessageFor(model => model.status, "", new {@class = "text-danger"})
         </div>
-        <br />
-
+        
         <div class="text-lg-center">
-            <input type="submit" class="btn btn-md btn-outline-warning" value="CREATE" />
-            <button type="button" class="btn btn-md btn-outline-warning" onclick="location.href='@Url.Action("Index", "TutorAssign2")'">VIEW ASSIGNED</button>
+            <input type="submit" class="btn btn-md btn-outline-dark" value="CREATE" />
             <button type="button" class="btn btn-md btn-outline-danger" onclick="location.href = '@Url.Action("Index","TutorAssign")'">BACK</button>
         </div>
     }

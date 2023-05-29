@@ -12,7 +12,7 @@ using THE_SPOT.Data;
 namespace THE_SPOT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230529203312_DeptEmployeePR")]
+    [Migration("20230529211009_DeptEmployeePR")]
     partial class DeptEmployeePR
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -239,6 +239,10 @@ namespace THE_SPOT.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("description")
                         .IsRequired()

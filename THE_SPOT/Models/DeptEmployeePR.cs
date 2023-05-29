@@ -8,6 +8,9 @@ namespace THE_SPOT.Models
         [Key]
         public int ID { get; set; }
 
+        [DisplayName("Date")]
+        public string date { get; set; }
+
         [Required(ErrorMessage = "Please provide the item quantity.")]
         [DisplayName("QTY")]
         public int qty { get; set; }
