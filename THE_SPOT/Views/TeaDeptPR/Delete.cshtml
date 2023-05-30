@@ -1,56 +1,63 @@
-﻿@using static THE_SPOT.Models.CoffeeDeptPR
-@model THE_SPOT.Models.CoffeeDeptPR
+﻿@using static THE_SPOT.Models.TeaDeptPR
+@model THE_SPOT.Models.TeaDeptPR
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "DeleteRequest";
 }
 
-<form method="post" asp-action="CoffeeDeletePost">
+<div style="text-align:center">
+    <img src="~/Images/transparentLogo.png" width="150" />
+</div>
+<form method="post" asp-action="DeletePost">
     <input asp-for="ID" hidden />
     <div class="border p-3">
-        <div class="form-group row">
-            <h4 class="text-black pl-3 text-warning">DELETE PURCHASE REQUEST ORDER FOR COFFEE DEPARTMENT</h4>
+        <div class="form-group row" style="text-align:center">
+            <h4 class="text-black pl-3 text-warning">DELETE PURCHASE REQUEST ORDER FOR TEA DEPARTMENT</h4>
         </div>
+        <br/>
+        <div class="border-dark border-1">
         <div class="row">
             <div class="col-12">
                 <div class="form-group row">
-                    <div class="col-2">
+                    <div class="col-3">
                         <label asp-for="qty"></label>
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <label asp-for="date"></label>
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <label asp-for="description"></label>
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <label asp-for="itemPrice"></label>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-2">
+                    <div class="col-3">
                         <input asp-for="qty" disabled class="form-control" />
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <input asp-for="date" disabled class="form-control" />
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <input asp-for="description" disabled class="form-control" />
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <input asp-for="itemPrice" disabled class="form-control" />
                     </div>
                 </div>
+                <br/>
                 <div class="form-group row">
                     <div class="col-8 offset-2 row">
                         <div class="col">
                             <input type="submit" class="btn btn-outline-danger w-75" value="DELETE" />
                         </div>
                         <div class="col">
-                            <a asp-action="CoffeeDeptPR" class="btn btn-outline-warning w-75">BACK</a>
+                            <a asp-action="TeaDeptPR" class="btn btn-outline-dark w-75">BACK</a>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 

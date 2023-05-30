@@ -1,0 +1,79 @@
+﻿@model IEnumerable<THE_SPOT.Models.MugsDeptPR>
+@{
+    ViewData["Title"] = "PurchaseRequestStatus";
+}
+
+<div style="text-align:center">
+    <img src="~/Images/transparentLogo.png" width="150" />
+</div>
+<h4 class="text-center text-bold">MUGS DEPARTMENT PURCHASE REQUESTS STATUS</h4>
+<br />
+<div class="form-actions no-color">
+    <p>
+        Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+        <input type="submit" value="Search" class="btn btn-default" /> |
+        <a asp-action="Index">Back to Full List</a>
+    </p>
+</div>
+<div class="container p-3 text-md-center text-bold">
+    <a class="nav-link" href="javascript:window.print()">
+        <span class="tf-icons bx bx-printer me-2"></span>
+        Click here to print report.
+    </a>
+    <div class="row pt-4">
+        <div class="col-6"></div>
+    </div>
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table striped border-2 border-dark" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        QTY
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Item Price
+                    </th>
+                    <th>
+                        Request Status
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var mugsDeptPR in Model)
+                {
+                    <tr>
+                        <td width="30%">@mugsDeptPR.date</td>
+                        <td width="30%">@mugsDeptPR.qty</td>
+                        <td width="30%">@mugsDeptPR.description</td>
+                        <td width="30%">@mugsDeptPR.itemPrice</td>
+                        <td width="30%">@mugsDeptPR.PRstatus</td>
+                        <td width="30%">
+                            <div class="w-100 btn-group" role="group">
+                                <a asp-controller="MugsDeptPR" asp-action="Delete" asp-route-ID="@mugsDeptPR.ID"><img src="~/Images/img_275375.png" width="25" /></a><pre></pre>
+                                <a asp-controller="MugsDeptPR" asp-action="Update" asp-route-ID="@mugsDeptPR.ID"><img src="~/Images/edit.png" width="25" /></a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No assignment has been added yet.</p>
+    }
+    <div class="col-12">
+        <button type="submit" class="btn btn-md btn-outline-danger" onclick="location.href = '@Url.Action("PRHistoryDepartments","DeptEmployee")'">BACK</button>
+    </div>
+</div>
+
+

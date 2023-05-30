@@ -30,9 +30,7 @@ namespace THE_SPOT.Models
 
         public enum status
         {
-            Pending,
-            Approved,
-            Declined
+            Pending
         }
 
     }

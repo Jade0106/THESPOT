@@ -12,7 +12,7 @@
                     <h4>Coffee Department</h4>
                     <img src="~/Images/cofee beans.jpg" width="300" class="rounded-2" />
                     <div> <br /> </div>
-                    <p class="card-text text-secondary text-bold">View purchase requests for this department.</p>
+                    <p class="card-text text-secondary text-bold">View purchase request statuses for this department.</p>
                     <button type="button" onclick="location.href = '@Url.Action("CoffeeDeptPR", "DeptEmployee")'" class="btn btn btn-outline-dark btn-xl">View</button>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                     <h4>Tea Department</h4>
                     <img src="~/Images/tea.jpg" width="300" class="rounded-2" />
                     <div> <br /> </div>
-                    <p class="card-text text-secondary text-bold">View purchase requests for this department.</p>
+                    <p class="card-text text-secondary text-bold">View purchase request statuses for this department.</p>
                     <button type="button" onclick="location.href = '@Url.Action("TeaDeptPR", "DeptEmployee")'" class="btn btn-outline-dark btn-xl">View</button>
                 </div>
             </div>
@@ -40,10 +40,13 @@
                     <h4>Mugs Department</h4>
                     <img src="~/Images/mugs.png" width="300" class="rounded-2" />
                     <div> <br /> </div>
-                    <p class="card-text text-secondary text-bold">View purchase requests for this department.</p>
+                    <p class="card-text text-secondary text-bold">View purchase request statuses this department.</p>
                     <button type="button" onclick="location.href = '@Url.Action("MugsDeptPR", "DeptEmployee")'" class="btn btn-outline-dark btn-xl">View</button>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="col-lg-12 text-center">
+        <button type="submit" class="btn btn-md btn-outline-danger fw-bold" onclick="location.href = '@Url.Action("Index","DeptEmployee")'">BACK</button>
     </div>
 </div>

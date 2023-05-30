@@ -1,63 +1,64 @@
-﻿@using static THE_SPOT.Models.TeaDeptPR
-@model THE_SPOT.Models.TeaDeptPR
+﻿@using static THE_SPOT.Models.MugsDeptPR
+@model THE_SPOT.Models.MugsDeptPR
 @{
-    ViewData["Title"] = "Update";
+    ViewData["Title"] = "UpdatePurchaseRequest";
 }
 
-<form method="post" asp-action="CoffeeUpdate">
+<div style="text-align:center">
+    <img src="~/Images/transparentLogo.png" width="150" />
+</div>
+<form method="post" asp-action="Update">
     <input asp-for="ID" hidden />
-    <div class="border p-3">
+    <div class="border p-3" style="align-content:center">
         <div class="form-group row">
-            <h4 class="text-black pl-3 text-warning">UPDATE PURCHASE REQUEST FOR TEA DEPARTMENT</h4>
+            <h4 class="text-black pl-3 text-warning">UPDATE PURCHASE REQUEST FOR MUGS DEPARTMENT</h4>
         </div>
+        <br/>
+        <div class="border-dark border-1">
         <div class="row">
             <div class="col-12">
                 <div class="form-group row">
-                    <div class="col-2">
+                    <div class="col-3">
                         <label asp-for="qty"></label>
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <label asp-for="date"></label>
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <label asp-for="description"></label>
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <label asp-for="itemPrice"></label>
                     </div>
-                    <div class="col-2">
-@*                        <label asp-for="status"></label>
-*@                    </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-2">
+                    <div class="col-3">
                         <input asp-for="qty" class="form-control" />
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <input asp-for="date" class="form-control" />
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <input asp-for="description" class="form-control" />
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <input asp-for="itemPrice" class="form-control" />
                     </div>
-                    <div class="col-2">
-@*                        <input asp-for="status" class="form-control" />
-*@                    </div>
                 </div>
+                <br/>
                 <div class="form-group row">
                     <div class="col-8 offset-2 row">
                         <div class="col">
                             <input type="submit" class="btn btn-outline-info w-75" value="UPDATE" />
                         </div>
                         <div class="col">
-                            <a asp-action="Index" class="btn btn-outline-warning w-75">BACK</a>
+                            <a asp-action="Index" class="btn btn-outline-dark w-75">BACK</a>
                         </div>
                     </div>
                 </div>
 
             </div>
+        </div>
         </div>
     </div>
 </form>
