@@ -164,6 +164,7 @@ namespace THE_SPOT.Data
             {
 
                 //Roles
+                //Roles
                 var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
                 if (!await roleManager.RoleExistsAsync(UserRoles.Admin))
@@ -174,6 +175,11 @@ namespace THE_SPOT.Data
                     await roleManager.CreateAsync(new IdentityRole(UserRoles.DepartmentEmp));
                 if (!await roleManager.RoleExistsAsync(UserRoles.PurchasingEmp))
                     await roleManager.CreateAsync(new IdentityRole(UserRoles.PurchasingEmp));
+                if (!await roleManager.RoleExistsAsync(UserRoles.SalesEmp)) // Add this line
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.SalesEmp));
+                if (!await roleManager.RoleExistsAsync(UserRoles.StockControlEmp)) // Add this line
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.StockControlEmp));
+
 
                 //Users
                 var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
