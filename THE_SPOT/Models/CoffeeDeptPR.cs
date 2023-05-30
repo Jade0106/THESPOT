@@ -27,8 +27,9 @@ namespace THE_SPOT.Models
         [DisplayName("Total")]
         public float total { get; set; }
 
-        [DisplayName("Request Status")]
-        public string status { get; set; }
-        
+    }
+    public enum coffeePRStatus
+    {
+        Pending
     }
 }
