@@ -117,42 +117,39 @@ namespace THE_SPOT.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    ////If statemements to redirect to different dashboards
                     var user = await _userManager.FindByNameAsync(Input.Email);
-                    ////user role list here
                     var roles = await _userManager.GetRolesAsync(user);
-                    ////get default role here
                     string role = roles.FirstOrDefault();
-                    if (role.Equals("User"))
+
+                    if (role != null && role.Equals("User", StringComparison.OrdinalIgnoreCase))
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "AllProducts");
                     }
-                    else if (role.Equals("DepartmentEmp"))
+                    else if (role != null && role.Equals("DepartmentEmp", StringComparison.OrdinalIgnoreCase))
                     {
                         return RedirectToAction("Index", "DeptEmployee");
                     }
-                    else if (role.Equals("PurchasingEmp"))
+                    else if (role != null && role.Equals("PurchasingEmp", StringComparison.OrdinalIgnoreCase))
                     {
                         return RedirectToAction("Index", "PurchasingEmployee");
                     }
-                    else if (role.Equals("Admin"))
+                    else if (role != null && role.Equals("Admin", StringComparison.OrdinalIgnoreCase))
                     {
                         return RedirectToAction("Index", "Admin");
                     }
-                    else if (role.Equals("SalesEmp"))
+                    else if (role != null && role.Equals("SalesEmp", StringComparison.OrdinalIgnoreCase))
                     {
                         return RedirectToAction("Index", "SalesEmployee");
                     }
-                    else if (role.Equals("StockControlEmp"))
+                    else if (role != null && role.Equals("StockControlEmp", StringComparison.OrdinalIgnoreCase))
                     {
                         return RedirectToAction("Index", "StockControlEmployee");
                     }
-                    //else
-                    //{
-                    //    //do something here. put in your logic 
-                    //}
 
-
+                    // else
+                    // {
+                    //     // do something here. put in your logic
+                    // }
 
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
