@@ -18,11 +18,11 @@ namespace THE_SPOT.Controllers
         {
             _db = db;
         }
-        public IActionResult Index()
-        {
-            IEnumerable<TeaDeptPR> objList = _db.TeaDeptPR;
-            return View(objList);
-        }
+        //public IActionResult Index()
+        //{
+        //    IEnumerable<TeaDeptPR> objList = _db.TeaDeptPR;
+        //    return View(objList);
+        //}
         public IActionResult Create()
         {
             return View();
@@ -107,20 +107,40 @@ namespace THE_SPOT.Controllers
 
             return RedirectToAction("Index");
         }
-        public async Task<IActionResult> Index1(string searchString)
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
-
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "description" : "";
+            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
             ViewData["CurrentFilter"] = searchString;
 
-            var teaDeptPR = from s in _db.TeaDeptPR
-                               select s;
+            var teaDeptPRs = from s in _db.TeaDeptPR
+                             select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                teaDeptPR = teaDeptPR.Where(s => s.description.Contains(searchString)
-                                       || s.description.Contains(searchString));
+                teaDeptPRs = teaDeptPRs.Where(s => s.description.Contains(searchString));
             }
-
-            return View(await teaDeptPR.AsNoTracking().ToListAsync());
+            switch (sortOrder)
+            {
+                case "qty":
+                    teaDeptPRs = teaDeptPRs.OrderByDescending(s => s.qty);
+                    break;
+                case "description":
+                    teaDeptPRs = teaDeptPRs.OrderBy(s => s.description);
+                    break;
+                case "itemPrice":
+                    teaDeptPRs = teaDeptPRs.OrderByDescending(s => s.itemPrice);
+                    break;
+                case "date":
+                    teaDeptPRs = teaDeptPRs.OrderByDescending(s => s.date);
+                    break;
+                case "status":
+                    teaDeptPRs = teaDeptPRs.OrderByDescending(s => s.PRstatus);
+                    break;
+                default:
+                    teaDeptPRs = teaDeptPRs.OrderBy(s => s.description);
+                    break;
+            }
+            return View(await teaDeptPRs.AsNoTracking().ToListAsync());
         }
     }
 

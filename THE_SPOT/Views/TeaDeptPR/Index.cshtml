@@ -8,13 +8,15 @@
 </div>
 <h4 class="text-center text-bold">TEA DEPARTMENT PURCHASE REQUESTS STATUS</h4>
 <br />
-<div class="form-actions no-color">
-    <p>
-        Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
-        <input type="submit" value="Search" class="btn btn-default" /> |
-        <a asp-action="Index">Back to Full List</a>
-    </p>
-</div>
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
 <div class="container p-3 text-md-center text-bold">
     <a class="nav-link" href="javascript:window.print()">
         <span class="tf-icons bx bx-printer me-2"></span>
@@ -30,13 +32,19 @@
             <thead>
                 <tr>
                     <th>
-                        Date
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">
+                            @Html.DisplayNameFor(model => model.date)
+
+                        </a>
                     </th>
                     <th>
                         QTY
                     </th>
                     <th>
-                        Description
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">
+                            @Html.DisplayNameFor(model => model.description)
+
+                        </a>
                     </th>
                     <th>
                         Item Price
@@ -72,6 +80,7 @@
         <p>No assignment has been added yet.</p>
     }
     <div class="col-12">
+        <button type="submit" class="btn btn-md btn-outline-dark" onclick="location.href = '@Url.Action("Create","TeaDeptPR")'">ADD REQUEST</button>
         <button type="submit" class="btn btn-md btn-outline-danger" onclick="location.href = '@Url.Action("PRHistoryDepartments","DeptEmployee")'">BACK</button>
     </div>
 </div>

@@ -18,11 +18,11 @@ namespace THE_SPOT.Controllers
         {
             _db = db;
         }
-        public IActionResult Index()
-        {
-            IEnumerable<MugsDeptPR> objList = _db.MugsDeptPR;
-            return View(objList);
-        }
+        //public IActionResult Index()
+        //{
+        //    IEnumerable<MugsDeptPR> objList = _db.MugsDeptPR;
+        //    return View(objList);
+        //}
         public IActionResult Create()
         {
             return View();
@@ -107,20 +107,40 @@ namespace THE_SPOT.Controllers
 
             return RedirectToAction("Index");
         }
-        public async Task<IActionResult> Index1(string searchString)
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
-
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "description" : "";
+            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
             ViewData["CurrentFilter"] = searchString;
 
-            var mugsDeptPR = from s in _db.MugsDeptPR
-                               select s;
+            var mugsDeptPRs = from s in _db.MugsDeptPR
+                              select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                mugsDeptPR = mugsDeptPR.Where(s => s.description.Contains(searchString)
-                                       || s.description.Contains(searchString));
+                mugsDeptPRs = mugsDeptPRs.Where(s => s.description.Contains(searchString));
             }
-
-            return View(await mugsDeptPR.AsNoTracking().ToListAsync());
+            switch (sortOrder)
+            {
+                case "qty":
+                    mugsDeptPRs = mugsDeptPRs.OrderByDescending(s => s.qty);
+                    break;
+                case "description":
+                    mugsDeptPRs = mugsDeptPRs.OrderBy(s => s.description);
+                    break;
+                case "itemPrice":
+                    mugsDeptPRs = mugsDeptPRs.OrderByDescending(s => s.itemPrice);
+                    break;
+                case "date":
+                    mugsDeptPRs = mugsDeptPRs.OrderByDescending(s => s.date);
+                    break;
+                case "status":
+                    mugsDeptPRs = mugsDeptPRs.OrderByDescending(s => s.PRstatus);
+                    break;
+                default:
+                    mugsDeptPRs = mugsDeptPRs.OrderBy(s => s.description);
+                    break;
+            }
+            return View(await mugsDeptPRs.AsNoTracking().ToListAsync());
         }
     }
 

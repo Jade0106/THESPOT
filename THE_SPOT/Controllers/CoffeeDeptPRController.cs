@@ -18,11 +18,11 @@ namespace THE_SPOT.Controllers
         {
             _db = db;
         }
-        public IActionResult Index()
-        {
-            IEnumerable<CoffeeDeptPR> objList = _db.CoffeeDeptPR;
-            return View(objList);
-        }
+        //public IActionResult Index()
+        //{
+        //    IEnumerable<CoffeeDeptPR> objList = _db.CoffeeDeptPR;
+        //    return View(objList);
+        //}
         public IActionResult Create()
         {
             return View();
@@ -107,20 +107,40 @@ namespace THE_SPOT.Controllers
 
             return RedirectToAction("Index");
         }
-        public async Task<IActionResult> Index1(string searchString)
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
-
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "description" : "";
+            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
             ViewData["CurrentFilter"] = searchString;
 
-            var coffeeDeptPR = from s in _db.CoffeeDeptPR
-                               select s;
+            var coffeeDepts = from s in _db.CoffeeDeptPR
+                                 select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                coffeeDeptPR = coffeeDeptPR.Where(s => s.description.Contains(searchString)
-                                       || s.description.Contains(searchString));
+                coffeeDepts = coffeeDepts.Where(s => s.description.Contains(searchString));
             }
-
-            return View(await coffeeDeptPR.AsNoTracking().ToListAsync());
+            switch (sortOrder)
+            {
+                case "qty":
+                    coffeeDepts = coffeeDepts.OrderByDescending(s => s.qty);
+                    break;
+                case "description":
+                    coffeeDepts = coffeeDepts.OrderBy(s => s.description);
+                    break;
+                case "itemPrice":
+                    coffeeDepts = coffeeDepts.OrderByDescending(s => s.itemPrice);
+                    break;
+                case "date":
+                    coffeeDepts = coffeeDepts.OrderByDescending(s => s.date);
+                    break;
+                case "status":
+                    coffeeDepts = coffeeDepts.OrderByDescending(s => s.PRstatus);
+                    break;
+                default:
+                    coffeeDepts = coffeeDepts.OrderBy(s => s.description);
+                    break;
+            }
+            return View(await coffeeDepts.AsNoTracking().ToListAsync());
         }
     }
 
