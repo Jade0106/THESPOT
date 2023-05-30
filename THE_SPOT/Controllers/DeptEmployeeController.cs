@@ -29,18 +29,6 @@ namespace THE_SPOT.Controllers
         }
         public IActionResult CoffeeDeptPR()
         {
-            return View();
-        }
-        public IActionResult TeaDeptPR()
-        {
-            return View();
-        }
-        public IActionResult MugsDeptPR()
-        {
-            return View();
-        }
-        public IActionResult CoffeePRHistory()
-        {
             IEnumerable<CoffeeDeptPR> objList = _db.CoffeeDeptPR;
             return View(objList);
         }
@@ -124,7 +112,7 @@ namespace THE_SPOT.Controllers
             }
             return RedirectToAction("Index");
         }
-        public IActionResult TeaPRHistory()
+        public IActionResult TeaDeptPR()
         {
             IEnumerable<TeaDeptPR> objList = _db.TeaDeptPR;
             return View(objList);
@@ -209,7 +197,7 @@ namespace THE_SPOT.Controllers
             }
             return RedirectToAction("Index");
         }
-        public IActionResult MugsPRHistory()
+        public IActionResult MugsDeptPR()
         {
             IEnumerable<MugsDeptPR> objList = _db.MugsDeptPR;
             return View(objList);
