@@ -1,0 +1,54 @@
+﻿@model THE_SPOT.Models.TeaViewModel
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" asp-action="Update">
+    <input asp-for="TeaId" hidden />
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-outline mb-4">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                <label asp-for="Name" class="form-label" for="form3Example1cg"> Name</label>
+                <input asp-for="Name" type="text" id="form3Example1cg" class="form-control form-control-lg" style="width:1000px" />
+            </div>
+            <div class="form-outline mb-4">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                <label asp-for="Description" class="form-label" for="form3Example1cg">Description</label>
+                <input asp-for="Description" type="text" id="form3Example1cg" class="form-control form-control-lg" style="width:1000px" />
+            </div>
+            <div class="form-outline mb-4">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                <label asp-for="Price" class="form-label" for="form3Example1cg">Price</label>
+                <input asp-for="Price" type="text" id="form3Example1cg" class="form-control form-control-lg" style="width:1000px" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" style="width:1000px" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+
+            <br />
+            <div class="text-lg-center">
+                <input type="submit" class="btn btn-outline-primary" value="UPDATE" />
+                <button type="button" class="btn btn-md btn-outline-danger" onclick="location.href = '@Url.Action("Index1","Tea")'">BACK</button>
+            </div>
+
+        </div>
+    </div>
+
+</form>
+
+
+
+
+
+    
+    
+

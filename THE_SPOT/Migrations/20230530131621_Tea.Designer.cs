@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using THE_SPOT.Data;
 
@@ -11,9 +12,10 @@ using THE_SPOT.Data;
 namespace THE_SPOT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230530131621_Tea")]
+    partial class Tea
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -202,12 +204,9 @@ namespace THE_SPOT.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<string>("PRstatus")
+                    b.Property<string>("date")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("date")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("description")
                         .IsRequired()
@@ -218,6 +217,13 @@ namespace THE_SPOT.Migrations
 
                     b.Property<int>("qty")
                         .HasColumnType("int");
+
+                    b.Property<string>("status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("total")
+                        .HasColumnType("real");
 
                     b.HasKey("ID");
 
@@ -232,10 +238,6 @@ namespace THE_SPOT.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<string>("PRstatus")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("date")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -249,6 +251,13 @@ namespace THE_SPOT.Migrations
 
                     b.Property<int>("qty")
                         .HasColumnType("int");
+
+                    b.Property<string>("status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("total")
+                        .HasColumnType("real");
 
                     b.HasKey("ID");
 
@@ -295,10 +304,6 @@ namespace THE_SPOT.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<string>("PRstatus")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("date")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -312,6 +317,13 @@ namespace THE_SPOT.Migrations
 
                     b.Property<int>("qty")
                         .HasColumnType("int");
+
+                    b.Property<string>("status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("total")
+                        .HasColumnType("real");
 
                     b.HasKey("ID");
 
