@@ -1,0 +1,79 @@
+﻿@model IEnumerable<THE_SPOT.Models.TeaViewModel>
+
+@{
+    ViewData["Title"] = "Index1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <form method="get" action="@Url.Action("Index1", "Tea")">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search by Name" name="searchString" value="@ViewBag.CurrentFilter" />
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit">Search</button>
+                        <a class="btn btn-outline-danger" href="@Url.Action("Index1", "Tea")">Clear</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+@if (Model.Count() > 0)
+{
+    <table class="table table-bordered table stripaccent-red" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Image
+                </th>
+                <th>
+                    Date
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tea in Model)
+            {
+                <tr>
+                    <td width="30%">@tea.Name</td>
+                    <td width="30%">@tea.Description</td>
+                    <td width="30%">@tea.Price</td>
+                    <td width="30%">@tea.ImageFile</td>
+                    <td width="30%">@tea.Date</td>
+                    <td width="30%">
+                        <div class="w-100 btn-group" role="group">
+                            <!-- Modify the line below with the appropriate property from your model -->
+                            <a asp-controller="Tea" asp-action="Delete" asp-route-id="@tea.TeaId" class="btn-outline-danger mx-1"><img src="~/Images/img_275375.png" width="25" /></a>
+                            <a asp-controller="Tea" asp-action="Update" asp-route-id="@tea.TeaId" class="btn-outline-success mx-1"><img src="~/Images/update.jpg" width="25" /></a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No product has been added.</p>
+}
+<div class="col-7 text-right">
+    <br />
+    <a asp-controller="Tea" asp-action="Create" class="btn btn-outline-success">Add Product</a>
+    <a href="@Url.Action("GenerateReport", "Tea")" class="btn btn-outline-secondary">Generate Report</a> 
+</div>
+
+
