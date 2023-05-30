@@ -12,21 +12,16 @@
 <form method="post" asp-action="CoffeeCreate">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group row"></div>
+
     @using (Html.BeginForm("Create", "Home", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
+
         <div class="form-outline mb-4">
             <label class="form-label" for="form3Example">Iteam Quantity</label>
             <input asp-for="qty" type="text" id="form3Example1cg" class="form-control form-control-lg" />
             @Html.ValidationSummary(true, "", new{@class = "text-danger"})
             @Html.ValidationMessageFor(model => model.qty, "", new {@class = "text-danger"})
-        </div>
-
-        <div class="form-outline mb-4">
-            <label class="form-label" for="form3Example">Date</label>
-            <input asp-for="date" type="text" id="form3Example1cg" class="form-control form-control-lg" />
-            @Html.ValidationSummary(true, "", new{@class = "text-danger"})
-            @Html.ValidationMessageFor(model => model.date, "", new {@class = "text-danger"})
         </div>
 
         <div class="form-outline mb-4">
@@ -51,12 +46,26 @@
         </div>
 
         <div class="form-outline mb-4">
-            <label class="form-label" for="form3Example1cg" style="width:1000px">Request Status</label>
-            <input asp-for="status" type="text" id="form3Example1cg" class="form-control form-control-lg" />
+        <div class="form-group">
+            <label asp-for="date" class="control-label"></label>
+            <input asp-for="date" class="form-control" style="width:1000px" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+            <span asp-validation-for="date" class="text-danger"></span>
             @Html.ValidationSummary(true, "", new{@class = "text-danger"})
-            @Html.ValidationMessageFor(model => model.status, "", new {@class = "text-danger"})
+            @Html.ValidationMessageFor(model => model.date, "", new {@class = "text-danger"})
         </div>
-        
+        <script>
+            $(document).ready(function () {
+                $(".datepicker").datepicker({
+                    dateFormat: "dd-mm-yy",
+                    changemonth: true,
+                    changeyear: true
+                                                                        showOn: "button",
+                    buttonText: '<span class="glyphicon glyphicon-calender"></span>'
+                                                                        minDate: new Date()
+                });
+            });
+        </script>
+        </div>
         <div class="text-lg-center">
             <input type="submit" class="btn btn-md btn-outline-dark" value="CREATE" />
             <button type="button" class="btn btn-md btn-outline-danger" onclick="location.href = '@Url.Action("Index","TutorAssign")'">BACK</button>

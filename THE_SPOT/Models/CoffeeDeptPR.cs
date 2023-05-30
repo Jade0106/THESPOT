@@ -8,8 +8,9 @@ namespace THE_SPOT.Models
         [Key]
         public int ID { get; set; }
 
+        [DataType(DataType.Date)]
         [DisplayName("Date")]
-        public string date { get; set; }
+        public DateTime? date { get; set; }
 
         [Required(ErrorMessage = "Please provide the item quantity.")]
         [DisplayName("QTY")]
