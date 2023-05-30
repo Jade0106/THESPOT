@@ -238,9 +238,12 @@ namespace THE_SPOT.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<string>("date")
+                    b.Property<string>("PRstatus")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("date")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("description")
                         .IsRequired()
@@ -251,13 +254,6 @@ namespace THE_SPOT.Migrations
 
                     b.Property<int>("qty")
                         .HasColumnType("int");
-
-                    b.Property<string>("status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float>("total")
-                        .HasColumnType("real");
 
                     b.HasKey("ID");
 
@@ -272,6 +268,10 @@ namespace THE_SPOT.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
+                    b.Property<string>("PRstatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("date")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -285,13 +285,6 @@ namespace THE_SPOT.Migrations
 
                     b.Property<int>("qty")
                         .HasColumnType("int");
-
-                    b.Property<string>("status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float>("total")
-                        .HasColumnType("real");
 
                     b.HasKey("ID");
 
@@ -306,6 +299,10 @@ namespace THE_SPOT.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
+                    b.Property<string>("PRstatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("date")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -319,13 +316,6 @@ namespace THE_SPOT.Migrations
 
                     b.Property<int>("qty")
                         .HasColumnType("int");
-
-                    b.Property<string>("status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float>("total")
-                        .HasColumnType("real");
 
                     b.HasKey("ID");
 

@@ -39,13 +39,6 @@
         </div>
 
         <div class="form-outline mb-4">
-            <label class="form-label" for="form3Example">Total</label>
-            <input asp-for="total" type="text" id="form3Example1cg" class="form-control form-control-lg" />
-            @Html.ValidationSummary(true, "", new{@class = "text-danger"})
-            @Html.ValidationMessageFor(model => model.total, "", new {@class = "text-danger"})
-        </div>
-
-        <div class="form-outline mb-4">
             <div class="form-group">
                 <label asp-for="date" class="control-label"></label>
                 <input asp-for="date" class="form-control" style="width:1000px" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
@@ -68,7 +61,7 @@
         </div>
         <div class="text-lg-center">
             <input type="submit" class="btn btn-md btn-outline-dark" value="CREATE" />
-            <button type="button" class="btn btn-md btn-outline-danger" onclick="location.href = '@Url.Action("Index","TutorAssign")'">BACK</button>
+            <button type="button" class="btn btn-md btn-outline-danger" onclick="location.href = '@Url.Action("PRDepartments","DeptEmployee")'">BACK</button>
         </div>
     }
 </form>

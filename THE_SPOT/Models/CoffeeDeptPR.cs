@@ -24,12 +24,16 @@ namespace THE_SPOT.Models
         [DisplayName("Item Price")]
         public float itemPrice { get; set; }
 
-        [DisplayName("Total")]
-        public float total { get; set; }
+        [Required(ErrorMessage = "Please select the purchase request status.")]
+        [DisplayName("Status")]
+        public string PRstatus { get; set; }
 
-    }
-    public enum coffeePRStatus
-    {
-        Pending
+        public enum status
+        {
+            Pending,
+            Approved,
+            Declined
+        }
+
     }
 }

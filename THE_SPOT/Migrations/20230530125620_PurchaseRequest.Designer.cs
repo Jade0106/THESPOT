@@ -12,8 +12,8 @@ using THE_SPOT.Data;
 namespace THE_SPOT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230529211009_DeptEmployeePR")]
-    partial class DeptEmployeePR
+    [Migration("20230530125620_PurchaseRequest")]
+    partial class PurchaseRequest
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -232,13 +232,47 @@ namespace THE_SPOT.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("THE_SPOT.Models.DeptEmployeePR", b =>
+            modelBuilder.Entity("THE_SPOT.Models.CoffeeDeptPR", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("PRstatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("itemPrice")
+                        .HasColumnType("real");
+
+                    b.Property<int>("qty")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("CoffeeDeptPR");
+                });
+
+            modelBuilder.Entity("THE_SPOT.Models.MugsDeptPR", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("PRstatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("date")
                         .IsRequired()
@@ -254,16 +288,40 @@ namespace THE_SPOT.Migrations
                     b.Property<int>("qty")
                         .HasColumnType("int");
 
-                    b.Property<string>("status")
+                    b.HasKey("ID");
+
+                    b.ToTable("MugsDeptPR");
+                });
+
+            modelBuilder.Entity("THE_SPOT.Models.TeaDeptPR", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("PRstatus")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("total")
+                    b.Property<string>("date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("itemPrice")
                         .HasColumnType("real");
+
+                    b.Property<int>("qty")
+                        .HasColumnType("int");
 
                     b.HasKey("ID");
 
-                    b.ToTable("DeptEmployeePR");
+                    b.ToTable("TeaDeptPR");
                 });
 
             modelBuilder.Entity("THE_SPOT.Models.ApplicationUser", b =>

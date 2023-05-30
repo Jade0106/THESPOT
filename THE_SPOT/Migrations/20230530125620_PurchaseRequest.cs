@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace THE_SPOT.Migrations
 {
-    public partial class PurchaseRequestDepts : Migration
+    public partial class PurchaseRequest : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,12 +15,11 @@ namespace THE_SPOT.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    date = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    date = table.Column<DateTime>(type: "datetime2", nullable: true),
                     qty = table.Column<int>(type: "int", nullable: false),
                     description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     itemPrice = table.Column<float>(type: "real", nullable: false),
-                    total = table.Column<float>(type: "real", nullable: false),
-                    status = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    PRstatus = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -36,8 +36,7 @@ namespace THE_SPOT.Migrations
                     qty = table.Column<int>(type: "int", nullable: false),
                     description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     itemPrice = table.Column<float>(type: "real", nullable: false),
-                    total = table.Column<float>(type: "real", nullable: false),
-                    status = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    PRstatus = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -54,8 +53,7 @@ namespace THE_SPOT.Migrations
                     qty = table.Column<int>(type: "int", nullable: false),
                     description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     itemPrice = table.Column<float>(type: "real", nullable: false),
-                    total = table.Column<float>(type: "real", nullable: false),
-                    status = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    PRstatus = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

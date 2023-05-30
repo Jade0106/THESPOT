@@ -43,19 +43,13 @@
             @Html.ValidationMessageFor(model => model.itemPrice, "", new {@class = "text-danger"})
         </div>
 
-        <div class="form-outline mb-4">
-            <label class="form-label" for="form3Example">Total</label>
-            <input asp-for="total" type="text" id="form3Example1cg" class="form-control form-control-lg" />
-            @Html.ValidationSummary(true, "", new{@class = "text-danger"})
-            @Html.ValidationMessageFor(model => model.total, "", new {@class = "text-danger"})
-        </div>
 
-        <div class="form-outline mb-4">
+        @*<div class="form-outline mb-4">
             <label class="form-label" for="form3Example1cg" style="width:1000px">Request Status</label>
             <input asp-for="status" type="text" id="form3Example1cg" class="form-control form-control-lg" />
             @Html.ValidationSummary(true, "", new{@class = "text-danger"})
             @Html.ValidationMessageFor(model => model.status, "", new {@class = "text-danger"})
-        </div>
+        </div>*@
 
         <div class="text-lg-center">
             <input type="submit" class="btn btn-md btn-outline-dark" value="CREATE" />
