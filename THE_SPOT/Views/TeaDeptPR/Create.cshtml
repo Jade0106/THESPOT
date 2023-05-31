@@ -1,6 +1,5 @@
 ﻿@using static THE_SPOT.Models.TeaDeptPR
 @model THE_SPOT.Models.TeaDeptPR
-@using static THE_SPOT.Controllers.DeptEmployeeController
 
 @{
     ViewData["Title"] = "PurchaseRequest";
@@ -19,10 +18,17 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-outline mb-4">
+            <div class="form-outline mb-4">
             <div class="form-group">
+                <script>
+                    $(document).ready(function () {
+                        $(‘#txtDob’).tooltip({
+                            track: true
+                        });
+                    });
+                </script>
                 <label asp-for="date" class="control-label"></label>
-                <input asp-for="date" class="form-control" style="width:1000px" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                <input asp-for="date" class="form-control" style="width:1000px" value="@DateTime.Now.ToString("yyyy-MM-dd")" title="Select textbox to add date."/>
                 <span asp-validation-for="date" class="text-danger"></span>
                 @Html.ValidationSummary(true, "", new{@class = "text-danger"})
                 @Html.ValidationMessageFor(model => model.date, "", new {@class = "text-danger"})
@@ -42,22 +48,43 @@
         </div>
 
         <div class="form-outline mb-4">
+            <script>
+                $(document).ready(function () {
+                    $(‘#txtDob’).tooltip({
+                        track: true
+                    });
+                });
+            </script>
             <label class="form-label" for="form3Example">Iteam Quantity</label>
-            <input asp-for="qty" type="text" id="form3Example1cg" class="form-control" />
+            <input asp-for="qty" type="text" id="form3Example1cg" class="form-control" title="Select textbox to add quantity." />
             @Html.ValidationSummary(true, "", new{@class = "text-danger"})
             @Html.ValidationMessageFor(model => model.qty, "", new {@class = "text-danger"})
         </div>
 
         <div class="form-outline mb-4">
+            <script>
+                $(document).ready(function () {
+                    $(‘#txtDob’).tooltip({
+                        track: true
+                    });
+                });
+            </script>
             <label class="form-label" for="form3Example">Item Description</label>
-            <input asp-for="description" type="text" id="form3Example1cg" class="form-control" />
+            <input asp-for="description" type="text" id="form3Example1cg" class="form-control" title="Select textbox to add description"/>
             @Html.ValidationSummary(true, "", new{@class = "text-danger"})
             @Html.ValidationMessageFor(model => model.description, "", new {@class = "text-danger"})
         </div>
 
         <div class="form-outline mb-4">
+            <script>
+                $(document).ready(function () {
+                    $(‘#txtDob’).tooltip({
+                        track: true
+                    });
+                });
+            </script>
             <label class="form-label" for="form3Example1cg" style="width:1000px">Item Price</label>
-            <input asp-for="itemPrice" type="text" id="form3Example1cg" class="form-control" />
+            <input asp-for="itemPrice" type="text" id="form3Example1cg" class="form-control" title="Select textbox to add price."/>
             @Html.ValidationSummary(true, "", new{@class = "text-danger"})
             @Html.ValidationMessageFor(model => model.itemPrice, "", new {@class = "text-danger"})
         </div>
