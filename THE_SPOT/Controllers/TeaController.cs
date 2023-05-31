@@ -98,7 +98,7 @@ namespace THE_SPOT.Controllers
 
                 db.Teas.Add(tea);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index1");
+                return RedirectToAction("Index1", "Tea");
             }
 
             return View(model);
