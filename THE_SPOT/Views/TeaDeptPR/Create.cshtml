@@ -64,7 +64,7 @@
 
         <div class="form-outline mb-4">
             <label class="form-label" for="form3Example1cg" style="width:1000px">Purchase Request Status</label>
-            @Html.DropDownListFor(m=> m.PRstatus, new SelectList(Enum.GetValues(typeof(status))),"Pending", new {@class="form-control"})
+            @Html.DropDownListFor(m=> m.PRstatus, new SelectList(Enum.GetValues(typeof(status))),"Select status", new {@class="form-control"})
         </div>
       
         <div class="text-lg-center">
